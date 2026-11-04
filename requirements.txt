@@ -1,0 +1,12 @@
+# V0.2 monitor: stdlib only. V0.3 bridge butuh vgamepad (ViGEm).
+# NOTE: versi PyPI max 0.1.0 (repo: github.com/yannbouteiller/vgamepad).
+# vgamepad 0.1.0 hanya ada sdist; `pip install` modern gagal di
+# "Preparing metadata (pyproject.toml)" (setuptools baru menolak config lama).
+# Fallback teruji (Python 3.9, setuptools bawaan venv 49.x):
+#   .\.venv\Scripts\pip.exe install wheel
+#   .\.venv\Scripts\pip.exe install --no-build-isolation --no-cache-dir vgamepad==0.1.0
+# Jika tetap gagal, salin paket yg sudah jalan dari Python system:
+#   Copy-Item -Recurse "$env:LOCALAPPDATA\Programs\Python\Python39\Lib\site-packages\vgamepad" .\.venv\Lib\site-packages\
+vgamepad==0.1.0
+# EXE onefile (BalapinBridge.exe): builder saja, tidak dipakai saat runtime.
+pyinstaller>=6.0.0
