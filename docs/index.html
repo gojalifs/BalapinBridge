@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - BalapinPCBridge</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
+    body { background: #f4f6f8; color: #333; line-height: 1.6; padding: 2rem; max-width: 800px; margin: 0 auto; }
+    h1, h2, h3 { color: #2c3e50; margin-bottom: 1rem; }
+    a { color: #3498db; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .badge { display: inline-block; padding: 0.2rem 0.5rem; background: #e8f4fd; color: #2c3e50; font-size: 0.8rem; border-radius: 3px; margin-bottom: 1rem; }
+    ul { margin-left: 2rem; }
+    @media (max-width: 600px) { body { padding: 1rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">BalapinPCBridge - Privacy Policy</div>
+
+    <h1>Privacy Policy</h1>
+
+    <p>Last updated: November 2026</p>
+
+    <p>This privacy policy describes how the BalapinPCBridge software ("we", "our", "us") collects, uses, and discloses information when you use the BalapinPCBridge application running on Windows.</p>
+
+    <h2>1. Information We Collect</h2>
+
+    <h3>1.1 UDP Network Data</h3>
+    <p>When you run BalapinBridge and connect your Android device to the same WiFi network, the application receives UDP packets from the Balapin PC Bridge Android app. This data includes:</p>
+    <ul>
+      <li>Steering values (-1.0 to 1.0)</li>
+      <li>Throttle values (0.0 to 1.0)</li>
+      <li>Brake values (0.0 to 1.0)</li>
+      <li>Button ABXY bitmask</li>
+      <li>Race control flags (DRS,ERS,ABS,TC,PIT_LIMIT,PIT_IN)</li>
+      <li>Sequence numbers and timestamps</li>
+    </ul>
+    <p>This data is received in real-time via UDP protocol and is not stored permanently unless you choose to enable logging via the --status flag, which saves a log file to <code>C:\ProgramData\Balapin\bridge.log</code>.</p>
+
+    <h3>1.2 Technical Information</h3>
+    <p>We automatically collect certain technical information about your system, including:</p>
+    <ul>
+      <li>Windows operating system version</li>
+      <li>Processor architecture (x64/arm64)</li>
+      <li>ViGEmBus driver status (installed/Not installed)</li>
+      <li>Task Scheduler status (running/stopped/not installed)</li>
+      <li>Local IP address (used for firewall rule creation)</li>
+    </ul>
+
+    <h2>2. How We Use Your Information</h2>
+
+    <p>The information we collect is used solely for the following purposes:</p>
+    <ul>
+      <li><strong>Primary Function:</strong> To receive UDP data from your Android device and convert it into virtual Xbox 360 gamepad input, allowing you to use your Android as a controller for racing games like F1 2020.</li>
+      <li><strong>Driver Management:</strong> To detect and install the ViGEmBus driver required for virtual gamepad functionality.</li>
+      <li><strong>Auto-start Configuration:</strong> To create a Windows Scheduled Task (ONLOGON) so the bridge runs automatically when you log into Windows.</li>
+      <li><strong>Debugging:</strong> To troubleshoot connection issues via the optional log file.</li>
+    </ul>
+
+    <h2>3. Data Storage and Retention</h2>
+
+    <p>We do not permanently store your UDP network data. The only persistent data we may create is:</p>
+    <ul>
+      <li><strong>Log file:</strong> If you run <code>BalapinBridge.exe --status</code>, a log file is created at <code>C:\ProgramData\Balapin\bridge.log</code>. This contains recent UDP packets for debugging purposes. You can delete this file at any time.</li>
+      <li><strong>Windows Task:</strong> The auto-start task is created in Task Scheduler under the name "BalapinBridge". This only runs the executable; it does not collect or transmit data.</li>
+    </ul>
+
+    <p>We do not sell, rent, or share your personal information with third parties for marketing or advertising purposes.</p>
+
+    <h2>4. Third-Party Services</h2>
+
+    <p>BalapinPCBridge uses the following third-party components:</p>
+
+    <h3>ViGEmBus 1.22.0</h3>
+    <p>The Virtual Xbox 360 gamepad functionality is provided by ViGEmBus, an open-source driver that emulates Xbox 360 controllers. ViGEmBus is distributed under the GNU General Public License v3.0 (GPLv3). By using BalapinPCBridge, you agree to the terms of the GPLv3 license for the ViGEmBus component. For more information, visit <a href="https://github.com/nefarius/ViGEmBus" target="_blank">https://github.com/nefarius/ViGEmBus</a></p>
+
+    <h3>vgamepad Library</h3>
+    <p>The Python library used for ViGEmBus interaction is vgamepad (version 0.1.0), which is also open-source software. See the repository for licensing details.</p>
+
+    <h2>5. Security</h2>
+
+    <p>We implement appropriate security measures to protect your information. However, remember that UDP is a connectionless protocol and data packets can be intercepted on unsecured networks. We strongly recommend using BalapinPCBridge only on trusted, private WiFi networks.</p>
+
+    <h2>6. Your Rights</h2>
+
+    <p>You have the right to:</p>
+    <ul>
+      <li>Disable the auto-start feature at any time via <code>BalapinBridge.exe --uninstall-autostart</code></li>
+      <li>Delete the log file at <code>C:\ProgramData\Balapin\bridge.log</code></li>
+      <li>Uninstall the ViGEmBus driver if no longer needed</li>
+      <li>Contact us with any questions about your data</li>
+    </ul>
+
+    <h2>7. Changes to This Privacy Policy</h2>
+
+    <p>We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page. You are advised to review this privacy policy periodically for any changes.</p>
+
+    <h2>8. Contact Us</h2>
+
+    <p>If you have any questions about this Privacy Policy, you can contact us at:</p>
+    <ul>
+      <li>GitHub Issues: <a href="https://github.com/gojalifs/BalapinBridge/issues" target="_blank">https://github.com/gojalifs/BalapinBridge/issues</a></li>
+      <li>Email: <a href="mailto:fajarsidik1999@gmail.com">fajarsidik1999@gmail.com</a></li>
+    </ul>
+  </div>
+</body>
+</html>
